@@ -1,4 +1,4 @@
-def appName = 'web-app'
+def appName = 'wms-system-custom'
 def namespace = 'web'
 
 
@@ -17,7 +17,7 @@ agent any
      stage("Build image") {
          steps {
              script {
-                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                 dockerImage = docker.build registry
              }
          }
      }
