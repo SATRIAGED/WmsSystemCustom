@@ -3,6 +3,9 @@ def namespace = 'web'
 
 
 pipeline {
+    environment {
+        registry = 'https://github.com/SATRIAGED/WmsSystemCustom.git'
+    }
 
 agent any
  stages {
@@ -14,7 +17,7 @@ agent any
      stage("Build image") {
          steps {
              script {
-                 dockerImage = docker.build('php:7.1.23-apache')
+                 dockerImage = docker.build registry + ":$BUILD_NUMBER"
              }
          }
      }
