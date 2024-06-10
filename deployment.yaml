@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment 
+
+metadata:
+  name: wms-system-custom
+  labels:
+    application: wms-system-custom
+
+spec:
+  selector:
+    matchLabels:
+      application: wms-system-custom  
+  replicas: 1
+  template:
+    metadata:
+      name: web2
+      labels:
+        application: wms-system-custom 
+      
+    spec:
+      containers:
+        - name: wms-system-custom
+          image: php:7.1.23-apache
+          ports:
+          - containerPort: 80
